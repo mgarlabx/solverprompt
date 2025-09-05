@@ -22,13 +22,14 @@ def analyze(body):
 
     # Resposta
     Forneça sugestões detalhadas para melhorar o prompt, mas não reescreva um prompt novo.
+    
     Seja construtivo e amigável em suas sugestões.
     '''
     
     messages = []
     messages.append({ "role": "system", "content": instructions })
     messages.append({ "role": "system", "content": f'''Responda no formato JSON com esse padrão: {{ "text": "texto"}}'''})
-    messages.append({ "role": "user", "content": f"Analise esse prompt: {prompt_input}." })
-    resp = completion(messages, "gpt-4o", "", body['language'])
+    messages.append({ "role": "user", "content": f"Analise esse prompt: <prompt a ser analisado>{prompt_input}</prompt a ser analisado>" })
+    resp = completion(messages, body['language'])
     
     return resp

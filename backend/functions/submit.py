@@ -12,6 +12,6 @@ def submit(body):
     messages.append({ "role": "system", "content": prompt })
     messages.append({ "role": "system", "content": f'''Responda no formato JSON com esse padrão: {{ "text": "texto"}}'''})
     messages.append({ "role": "user", "content": f"Execute esse prompt: {prompt_input}." })
-    resp = completion(messages, "gpt-4o", "", body['language'])
+    resp = completion(messages, body['language'])
     
     return resp
