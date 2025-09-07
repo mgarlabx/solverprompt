@@ -27,10 +27,10 @@ class Prompt {
                     prompt_input: prompt_input 
                 })
             })
-            .then(response => response.json())
+            .then(response => response.text())
             .then(data => {
                 Z.processing.hide();
-                const text = marked.parse(data.text);
+                const text = marked.parse(data);
                 Z.html('#response', text);
             })
             .catch(error => {

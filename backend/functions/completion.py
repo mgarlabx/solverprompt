@@ -18,7 +18,6 @@ def completion(messages, language):
     chat_completion = client.chat.completions.create(
         messages=messages,
         model='gpt-4o-mini',
-        response_format={ "type": "json_object" },
     )
     resp = chat_completion.choices[0].message.content
     
